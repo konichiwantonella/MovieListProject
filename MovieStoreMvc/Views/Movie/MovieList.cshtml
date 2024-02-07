@@ -1,0 +1,89 @@
+﻿@model MovieStoreMvc.Models.DTO.MovieListVm
+@{
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="4K Star - Entertainment HTML5 Template" />
+    <meta name="author" content="potenzaglobalsolutions.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>4K Star - Entertainment HTML5 Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <!-- CSS Global Compulsory (Do not remove)-->
+    <link rel="stylesheet" href="css/fontawesome/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+
+    <!-- Page CSS Implementing Plugins (Remove the plugin CSS here if site does not use that feature)-->
+    <link rel="stylesheet" href="css/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="css/swiper/swiper-bundle.min.css" />
+
+    <!-- Template Style -->
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body class="bg-dark">
+<div class="tbl-container">
+    <section class="space-ptb overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title">Movies</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>ReleaseYear</th>
+            <th>Image</th>
+            <th>Cast</th>
+            <th>Director</th>
+            <th>Action</th>
+        </tr>
+        @foreach(var item in Model.MovieList){
+        <tr>
+            <td>@item.Title</td>
+                <td>@item.GenreNames</td>
+                <td>@item.ReleaseYear</td>
+            <td><img style="height:60px;width:80px" src="/Uploads/@item.MovieImage"/></td>
+                <td>@item.Cast</td>
+                <td>@item.Director</td>
+                <td>
+                <a href="/Movie/Edit?id=@item.Id" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                <a onclick="return window.confirm('Are you sure?')" href="/Movie/Delete?id=@item.Id" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        }
+     
+    </table>
+    <div class="input-container">
+        <a href="/Movie/Add" class="btn btn-sec">Back</a>
+    </div>
+</div>
+    <!--=================================
+        Javascript -->
+    <!-- JS Global Compulsory (Do not remove)-->
+    <script src="~/js/jquery-3.6.1.min.js"></script>
+    <script src="~/js/jquery.appear.js"></script>
+    <script src="~/js/popper/popper.min.js"></script>
+    <script src="~/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Page JS Implementing Plugins (Remove the plugin script here if site does not use that feature)-->
+    <script src="~/js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/js/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Scripts (Do not remove)-->
+    <script src="~/js/custom.js"></script>
+</body>

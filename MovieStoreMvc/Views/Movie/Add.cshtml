@@ -1,0 +1,125 @@
+﻿@model MovieStoreMvc.Models.Domain.Movie
+@{
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="4K Star - Entertainment HTML5 Template" />
+    <meta name="author" content="potenzaglobalsolutions.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>4K Star - Entertainment HTML5 Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <!-- CSS Global Compulsory (Do not remove)-->
+    <link rel="stylesheet" href="css/fontawesome/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+
+    <!-- Page CSS Implementing Plugins (Remove the plugin CSS here if site does not use that feature)-->
+    <link rel="stylesheet" href="css/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="css/swiper/swiper-bundle.min.css" />
+
+    <!-- Template Style -->
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body class="bg-dark">
+
+<form class="w-40" asp-action="Add" method="post" enctype="multipart/form-data">
+    <section class="space-ptb overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title">Add Movie</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="input-container">
+        <label asp-for="Title" class="w-40">Title</label>
+        <input type="text" class="input" asp-for="Title">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Title"> </span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Director" class="w-40">Image</label>
+        <input type="file" asp-for="ImageFile">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="ImageFile"> </span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Genres" class="w-40">Genre</label>
+        <select asp-items="Model.GenreList" class="input" asp-for="Genres" multiple>
+            <option value="">--select--</option>
+        </select>
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Genres"> </span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="ReleaseYear" class="w-40">Released Year</label>
+        <input type="text" class="input" asp-for="ReleaseYear">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="ReleaseYear"> </span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Cast" class="w-40">Cast</label>
+        <input type="text" class="input" asp-for="Cast">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Cast"> </span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Director" class="w-40">Director</label>
+        <input type="text" class="input" asp-for="Director">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Director"> </span>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert mb-1">
+            @TempData["msg"]
+        </div>
+    }
+
+    <div class="input-container">
+        <button class="btn btn-default" type="submit">Save</button>
+        <a class="btn btn-sec" href="/Movie/MovieList">All records</a>
+    </div>
+</form>
+    <!--=================================
+        Javascript -->
+    <!-- JS Global Compulsory (Do not remove)-->
+    <script src="~/js/jquery-3.6.1.min.js"></script>
+    <script src="~/js/jquery.appear.js"></script>
+    <script src="~/js/popper/popper.min.js"></script>
+    <script src="~/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Page JS Implementing Plugins (Remove the plugin script here if site does not use that feature)-->
+    <script src="~/js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/js/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Scripts (Do not remove)-->
+    <script src="~/js/custom.js"></script>
+</body>
